@@ -1,0 +1,30 @@
+<div class="view-container plan-download-page">
+    <nav class="navbar fixed-top navbar-light bg-light">
+        <a class="navbar-brand" href="#/user/{{model.userID}}/plan ">Your Mission Plans</a>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="text-center">
+            <img class="mb-4" src="../../assets/images/animatedDrone.png" alt="" width="160" height="90">
+        </div>
+        <h3 class="mb-3 font-weight-normal lig font-color ">Choose a plan</h3>
+
+        <div class="list-group" ng-show="model.plans">
+            <a target="_self"
+               ng-repeat="i in model.plans"
+               href="{{i.url}}"
+               class="list-group-item list-group-item-action">
+                <i class="fas fa-file-alt"></i> &nbsp; {{i.key}}
+            </a>
+        </div>
+        <div class="alert alert-danger ng-cloak" ng-show="model.error" role="alert">
+            {{model.error}}
+        </div>
+    </div>
+
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <a class="navbar-brand" href="#/user/{{model.userID}}">
+            <i class="fas fa-user"></i>
+        </a>
+    </nav>
+</div>

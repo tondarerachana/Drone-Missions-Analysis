@@ -1,0 +1,134 @@
+<div class="view-container mission-validate-page wallpaper">
+    <nav class="navbar fixed-top navbar-light bg-light ">
+        <a class="navbar-brand" href="#/user/{{model.userID}}/mission">Analyze Mission</a>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="text-center">
+            <img class="mb-4" src="../../assets/images/animatedDrone.png" alt="" width="160" height="90">
+        </div>
+
+        <h3 class="mb-3 font-weight-normal lig font-color">Analyze Mission</h3>
+
+        <div class="form-group">
+            <div class="row button-group">
+                <div class="col-sm-12">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile-1"
+                               ngf-select="model.uploadImages($files)"
+                               accept="image/*" multiple>
+                        <label class="custom-file-label" for="customFile-1">Upload Images</label>
+                    </div>
+                    <ul class="list-inline mt-2">
+                        <li ng-repeat="f in model.images" class="list-inline-item mb-2">
+                            <img ngf-src="!f.$error && f"
+                                 ngf-resize="{width: 40, height: 40, quality: 0.8}"
+                                 ngf-no-object-url="true"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row button-group">
+                <div class="col-sm-12">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="customFile-2"
+                               ngf-select="model.uploadPlan($file)"
+                               accept=".xlsx, .xls, .csv">
+                        <label class="custom-file-label" for="customFile-2">Choose a mission plan</label>
+                    </div>
+                    <ul class="list-group list-group-flush text-muted">
+                        <li ng-repeat="f in model.plan" class="list-group-item">
+                            {{f.name}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="text-center">
+                <button type="button" class="btn btn-lg btn-block btn-success"
+                        ng-click="model.validate()">
+                    <i class="fas fa-check-circle"></i> &nbsp; Validate Mission
+                </button>
+            </div>
+            <div ng-show="model.success" class="alert alert-success mt-4" role="alert">
+                {{model.success}}
+            </div>
+            <div ng-show="model.error" class="alert alert-danger mt-4" role="alert">
+                {{model.error}}
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" ng-show="model.error && model.evaluatedWayPoints">
+        <h5 class="text-center">Get Details?</h5>
+
+        <div class="btn-switch" ng-class="{'btn-switch--on':model.toggle.switch}"
+             ng-model="model.toggle.switch" ng-click="model.toggle.switch = !model.toggle.switch">
+            <div class="btn-switch-circle"
+                 ng-class="{'btn-switch-circle--on':model.toggle.switch}"
+                 ng-model="model.toggle.switch" ng-click="model.toggle.switch = !model.toggle.switch">
+            </div>
+        </div>
+    </div>
+
+    <div ng-show="model.toggle.switch" class="mt-2 container-fluid">
+        <ng-map class="mt-2"
+                zoom="12"
+                center="[{{model.planData[0]['latitude']}}, {{model.planData[0]['longitude']}}]"
+                map-type-id="TERRAIN">
+            <marker ng-repeat="p in model.planData"
+                    position="[{{p.latitude}}, {{p.longitude}}]"
+                    icon='http://maps.google.com/mapfiles/ms/icons/blue.png'
+                    label="'{{$index}}'">
+            </marker>
+            <marker ng-repeat="p in model.metaData"
+                    position="[{{p.latitude}}, {{p.longitude}}]"
+                    icon='http://maps.google.com/mapfiles/ms/icons/{{model.evaluatedWayPoints[$index].status === "fail" ? "red" : "yellow"}}.png'
+                    label="'{{$index}}'">
+            </marker>
+            <shape name="polyline" id="foo"
+                   path="{{model.planData_coords}}"
+                   stroke-color="red"
+                   stroke-opacity="0.8"
+                   stroke-weight="2">
+            </shape>
+            <shape name="polyline" id="bar"
+                   path="{{model.metaData_coords}}"
+                   stroke-color="blue"
+                   stroke-opacity="0.8"
+                   stroke-weight="2">
+            </shape>
+        </ng-map>
+
+        <div class="table-responsive mt-2">
+            <table class="table table-striped table-hover table-bordered table-sm">
+                <thead>
+                <tr>
+                    <th scope="col">Point</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Reason</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="i in model.evaluatedWayPoints" class="{{i.reason ? 'table-danger' : 'table-success'}}">
+                    <td>{{$index + 1}}</td>
+                    <td>{{i.status}}</td>
+                    <td>{{i.reason ? i.reason : 'Success'}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <a class="navbar-brand" href="#/user/{{model.userID}}">
+            <i class="fas fa-user"></i>
+        </a>
+    </nav>
+</div>

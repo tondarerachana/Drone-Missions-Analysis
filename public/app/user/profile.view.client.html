@@ -1,0 +1,40 @@
+<div class="view-container profile-page">
+
+    <nav class="navbar fixed-top navbar-light bg-light">
+        <a class="navbar-brand" href="#/user/{{model.userID}}">Hello {{model.userID}}!</a>
+    </nav>
+
+    <div class="container-fluid">
+        <form>
+            <div class="text-center">
+                <img class="mb-4" src="../../assets/images/animatedDrone.png" alt="" width="160" height="90">
+            </div>
+            <h3 class="mb-3 font-weight-normal lig font-color">Home</h3>
+
+            <div class="form-group">
+                <a class="btn btn-block btn-lg btn-primary" href="#/user/{{model.userID}}/plan">
+                    <i class="fas fa-file-excel"></i> &nbsp; Download Plan
+                </a>
+            </div>
+
+            <div class="form-group">
+                <a class="btn btn-block btn-lg btn-success" href="#/user/{{model.userID}}/mission">
+                    <i class="fas fa-check-circle"></i> &nbsp; Validate Mission
+                </a>
+            </div>
+
+            <div class="form-group">
+                <a class="btn btn-block btn-lg btn-warning" ng-click="model.logout()">
+                    <i class="fas fa-sign-out-alt"></i> &nbsp; Sign Out
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <a class="navbar-brand" href="#/user/{{model.userID}}">
+            <i class="fas fa-user"></i>
+        </a>
+    </nav>
+
+</div>

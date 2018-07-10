@@ -1,0 +1,49 @@
+<div class="login-page container-fluid">
+    <form name="loginForm" class="form-signin" novalidate>
+        <h3 class="mb-3 font-weight-normal lig label-align font-color">Please sign in</h3>
+        <div class="form-group">
+            <label for="username" class="sr-only">Username</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend1">
+                        <i class="fas fa-user"></i>
+                    </span>
+                </div>
+                <input ng-model="user.username" type="text" id="username" name="username" class="form-control"
+                       placeholder="Username" required autofocus/>
+            </div>
+
+            <small ng-show="loginForm.$submitted && loginForm.username.$invalid"
+                   class="error">Username is required
+            </small>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="sr-only">Password</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend2">
+                        <i class="fas fa-key"></i>
+                    </span>
+                </div>
+                <input ng-model="user.password" type="password" id="password" name="password" class="form-control"
+                       placeholder="Password" required/>
+            </div>
+            <small ng-show="loginForm.password.$invalid && loginForm.$submitted"
+                   class="error">Password is required
+            </small>
+        </div>
+
+        <div ng-show="model.error" class="alert alert-danger" role="alert">
+            {{model.error}}
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit"
+                ng-click="loginForm.$valid && model.login(user)">
+            Sign in
+        </button>
+
+        <p class="mt-5 mb-3 text-muted lig text-center">&copy; 2017-2018</p>
+
+    </form>
+</div>
+

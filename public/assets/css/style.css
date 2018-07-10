@@ -1,0 +1,265 @@
+.form-group {
+    margin-bottom: 8px;
+}
+
+body {
+    background: url("../../assets/images/cloudsAnimated.gif");
+    background-size: cover;
+}
+
+.login-page, .profile-page, .mission-validate-page, .plan-download-page {
+    max-width: 320px;
+    padding: 100px 0;
+    margin: 0 auto;
+
+}
+
+.no-right-margin {
+    margin-right: 0;
+}
+
+.no-left-margin {
+    margin-left: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+.list-group-item .img-responsive {
+    width: 100%;
+}
+
+.scrollable-pane {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: 50px auto;
+    padding: 15px;
+    overflow: auto;
+}
+
+.left-pane {
+    border-right: 1px solid #EEE;
+}
+
+.right-pane {
+    right: 0;
+    overflow: auto;
+}
+
+.list-group-item a {
+    text-decoration: none !important;
+}
+
+textarea.form-control {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.list-group {
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.ss-widget-toolbar {
+    position: absolute;
+    top: 10px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    opacity: 0.9;
+    right: 0;
+    border-bottom-left-radius: 5px;
+}
+
+.list-group-item .video-block {
+    z-index: 2;
+}
+
+.navbar-link, .handle {
+    cursor: pointer;
+}
+
+.wbdev-flickr-image-box {
+    margin-top: 5px;
+    text-align: center;
+}
+
+.wbdev-flickr-image-box img {
+    cursor: pointer;
+}
+
+.btn-social > :first-child {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 0;
+    width: 32px;
+    line-height: 34px;
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-facebook {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-social {
+    position: relative;
+    padding-left: 44px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-facebook:focus, .btn-facebook.focus {
+    color: #fff;
+    background-color: #2d4373;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-facebook:hover {
+    color: #fff;
+    background-color: #2d4373;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-facebook:active, .btn-facebook.active, .open > .dropdown-toggle.btn-facebook {
+    background-image: none;
+}
+
+.btn-facebook:active, .btn-facebook.active, .open > .dropdown-toggle.btn-facebook {
+    color: #fff;
+    background-color: #2d4373;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 767px) {
+    .row .col-xs-12.local {
+        margin-bottom: 8px;
+    }
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+form.ng-submitted .ng-dirty.ng-invalid {
+    border: 2px solid red;
+}
+
+.no-bpm {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+#map {
+    width: 400px;
+    height: 350px;
+    align-self: center;
+}
+
+#map1 {
+    width: 400px;
+    height: 350px;
+    align-self: center;
+}
+
+.list-group-flush .list-group-item {
+    padding: 0;
+}
+
+.btn-switch {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 25px;
+    cursor: pointer;
+    background-color: #F27878;
+    border: 2px solid #F27878;
+    border-radius: 40px;
+    margin: auto;
+}
+
+.btn-switch-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: 21px;
+    width: 21px;
+    background-color: #fff;
+    border-radius: 40px;
+}
+
+.btn-switch--on {
+    background-color: #80CDBE;
+    border: 2px solid #80CDBE;
+}
+
+.btn-switch-circle--on {
+    left: auto;
+    right: 0;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.loading-wheel {
+    width: 20px;
+    height: 20px;
+    margin-top: -40px;
+    margin-left: -40px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    border-width: 30px;
+    border-radius: 50%;
+    -webkit-animation: spin 1s linear infinite;
+}
+
+.style-2 .loading-wheel {
+    border-style: double;
+    border-color: #ccc transparent;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+    }
+    100% {
+        -webkit-transform: rotate(-360deg);
+    }
+}
+
+.label-align {
+    text-align: center;
+}
+
+.font-color {
+    color: black;
+}
+
+.mission-validate-page .list-inline {
+    margin-bottom: 0;
+}
+
+.mission-validate-page .list-group-item {
+    background-color: inherit;
+}
